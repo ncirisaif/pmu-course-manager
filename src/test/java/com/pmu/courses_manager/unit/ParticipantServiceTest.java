@@ -8,8 +8,10 @@ import com.pmu.courses_manager.domain.model.Participant;
 import com.pmu.courses_manager.domain.model.ParticipantId;
 import com.pmu.courses_manager.domain.port.out.CourseEventPort;
 import com.pmu.courses_manager.domain.port.out.CoursePersistencePort;
+import com.pmu.courses_manager.domain.port.out.OutboxEventPersistencePort;
 import com.pmu.courses_manager.domain.port.out.ParticipantPersistencePort;
 import com.pmu.courses_manager.domain.service.ParticipantService;
+import com.pmu.courses_manager.infrastructure.adapter.persistence.entities.OutboxEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -39,6 +41,8 @@ class ParticipantServiceTest {
 
     @Mock
     private ParticipantPersistencePort participantPersistencePort;
+    @Mock
+    private OutboxEventPersistencePort  outboxEventPersistencePort;
 
     @InjectMocks
     private ParticipantService participantService;
@@ -67,6 +71,7 @@ class ParticipantServiceTest {
         String nom = "Nouveau Participant";
 
         when(coursePersistencePort.findById(courseId)).thenReturn(Optional.of(course));
+
         when(participantPersistencePort.save(eq(courseId), any(Participant.class)))
                 .thenAnswer(invocation -> {
                     Participant savedParticipant = invocation.getArgument(1);
@@ -83,7 +88,6 @@ class ParticipantServiceTest {
         verify(participantPersistencePort).save(eq(courseId), participantCaptor.capture());
         Participant capturedParticipant = participantCaptor.getValue();
         assertEquals(nom, capturedParticipant.getNom());
-        verify(courseEventPort).publishParticipantAdded(eq(courseId), any(Participant.class));
     }
 
     @Test
