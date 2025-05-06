@@ -1,7 +1,6 @@
 package com.pmu.courses_manager.unit;
 
 
-import com.pmu.courses_manager.application.exception.DossardDejaUtiliseException;
 import com.pmu.courses_manager.domain.model.Course;
 import com.pmu.courses_manager.domain.model.Participant;
 import com.pmu.courses_manager.domain.model.ParticipantId;

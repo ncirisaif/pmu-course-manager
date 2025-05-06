@@ -57,8 +57,7 @@ class ParticipantServiceTest {
     }
 
     private Course createTestCourse() {
-        Course testCourse = Course.create("Test Course", LocalDate.now(), 1);
-        return testCourse;
+        return Course.create("Test Course", LocalDate.now(), 1);
     }
 
     @Test

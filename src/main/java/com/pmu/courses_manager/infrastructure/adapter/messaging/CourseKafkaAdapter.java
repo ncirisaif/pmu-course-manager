@@ -1,20 +1,18 @@
 package com.pmu.courses_manager.infrastructure.adapter.messaging;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pmu.courses_manager.domain.model.Course;
 import com.pmu.courses_manager.domain.model.CourseId;
 import com.pmu.courses_manager.domain.model.Participant;
-import com.pmu.courses_manager.domain.model.ParticipantId;
 import com.pmu.courses_manager.domain.port.out.CourseEventPort;
 import com.pmu.courses_manager.infrastructure.adapter.persistence.OutboxJpaRepository;
 import com.pmu.courses_manager.infrastructure.adapter.persistence.entities.OutboxEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 

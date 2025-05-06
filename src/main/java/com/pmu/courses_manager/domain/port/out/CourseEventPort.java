@@ -3,7 +3,6 @@ package com.pmu.courses_manager.domain.port.out;
 import com.pmu.courses_manager.domain.model.Course;
 import com.pmu.courses_manager.domain.model.CourseId;
 import com.pmu.courses_manager.domain.model.Participant;
-import com.pmu.courses_manager.domain.model.ParticipantId;
 
 /**
  * Port de sortie pour l'événementiel

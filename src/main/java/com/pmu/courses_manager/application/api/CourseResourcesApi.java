@@ -1,13 +1,11 @@
 package com.pmu.courses_manager.application.api;
 
 
-
 import com.pmu.courses_manager.application.api.dto.CourseDto;
 import com.pmu.courses_manager.application.api.dto.ParticipantDto;
 import com.pmu.courses_manager.application.api.request.CreateCourseRequest;
 import com.pmu.courses_manager.application.api.request.CreateParticipantRequest;
 import com.pmu.courses_manager.application.api.request.UpdateCourseRequest;
-import com.pmu.courses_manager.application.api.request.UpdateParticipantRequest;
 import com.pmu.courses_manager.application.exception.ErrorResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -16,7 +14,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
